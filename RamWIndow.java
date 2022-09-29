@@ -47,16 +47,17 @@ public class RamWIndow extends JFrame {
 		ram.setGBSpace(GBSpace);
 		double blocks = ram.getGBSpace()*1024/64;
 		System.out.println(blocks);
+		System.out.println(ram.getGBSpace());
 		
 		  if (ram.getType().equals("SDR")) {
 			 for (double i = 0; i < blocks; i++) {
 				ram.getProcess().add(0);
 			}
-			BlocksfromArrayList(ram, start);
+			
 		}
-		 
 		
 		 
+		System.out.println(ram.getProcess().size());		 
 		
 			
 		setVisible(true);
@@ -95,6 +96,7 @@ public class RamWIndow extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				timer.start();
+				BlocksfromArrayList(ram, start);
 				
 			}
 		});
@@ -124,7 +126,7 @@ public class RamWIndow extends JFrame {
 		    }
 		});
 	}
- 	private void BlocksfromArrayList(Ram ram, int start) {
+ 	public void BlocksfromArrayList(Ram ram, int start) {
 		for (int i =0; i < ram.getProcess().size() ; i++) {
 			JLabel label = new JLabel();
 			if(ram.getProcess().get(i) == 0) {
