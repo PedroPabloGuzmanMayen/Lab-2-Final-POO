@@ -136,7 +136,7 @@ public class RamWIndow extends JFrame {
 				label.setText("Ocupado");
 				
 			}
-			label.setBounds(60, start+60, 40, 40);
+			label.setBounds(60, 60, 40, start+200);
 			getContentPane().add(label);
 			
 		}
