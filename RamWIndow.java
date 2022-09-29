@@ -34,6 +34,8 @@ public class RamWIndow extends JFrame {
 	Program program = new Program();
 	double GBSpace;
 	MethodsLab2 metL2 = new MethodsLab2();
+	int counter;
+	int limit;
 	
 
 	/**
@@ -53,11 +55,16 @@ public class RamWIndow extends JFrame {
 		System.out.println(ram.getGBSpace());
 		
 		  if (ram.getType().equals("SDR")) {
+			  limit = 1;
 			 for (double i = 0; i < blocks; i++) {
 				ram.getProcess().add(0);
 			}
+		
 			
 		}
+		  else {
+			  limit =2;
+		  }
 		
 		 
 		System.out.println(ram.getProcess().size());		 
@@ -132,7 +139,7 @@ public class RamWIndow extends JFrame {
 		timer2 = new Timer(ram.getTime(), new ActionListener ()	
 		{
 			public void actionPerformed(ActionEvent e) {
-				metL2.addToProcessList(ram, program, ram.getTime());
+				metL2.addToProcessList(ram, program, counter, limit);
 				BlocksfromArrayList(ram, start);
 				toWaitlist(ram, start2);
 			}
