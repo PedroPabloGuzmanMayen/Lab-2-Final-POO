@@ -148,8 +148,8 @@ public class RamWIndow extends JFrame {
  		
  		for (int i =0; i<ram.getWaitlist().size(); i++) {
  			JLabel label2 = new JLabel();
- 			label2.setText("Programa: " + ram.getWaitlist().get(i).getName() );
- 			label2.setBounds(start2+240*i, start2+240*i, 40,40);
+ 			label2.setText(ram.getWaitlist().get(i).getName() );
+ 			label2.setBounds(start2+60*i, 10, 200,200);
  	 		getContentPane().add(label2);
  	 		
  			
