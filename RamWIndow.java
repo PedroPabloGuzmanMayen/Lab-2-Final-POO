@@ -24,6 +24,7 @@ public class RamWIndow extends JFrame {
 
 	String type;
 	int start;
+	int start2;
 	int size;
 	int time;
 	Ram ram = new Ram();
@@ -77,6 +78,7 @@ public class RamWIndow extends JFrame {
 				int space2 = Integer.parseInt(space);
 				program.setSpace(space2);
 				ram.getWaitlist().add(program);
+				toWaitlist(ram);
 			}
 		});
 		menuBar.add(mntmNewMenuItem);
@@ -136,11 +138,23 @@ public class RamWIndow extends JFrame {
 				label.setText("Ocupado");
 				
 			}
-			label.setBounds(60, 60, 40, start+200);
+			label.setBounds(start+60*i, start+60*i, 40, 40);
 			getContentPane().add(label);
 			
 		}
 		
 	}
-
+ 	private void  toWaitlist(Ram ram, int start2) {
+ 		
+ 		for (int i =0; i<ram.getWaitlist().size(); i++) {
+ 			JLabel label2 = new JLabel();
+ 			label2.setText("Programa: " + ram.getWaitlist().get(i).getName() );
+ 			label2.setBounds(start2+240*i, start2+240*i, 40,40);
+ 	 		getContentPane().add(label2);
+ 	 		
+ 			
+ 		}
+ 		
+ 		
+ 	}
 }
