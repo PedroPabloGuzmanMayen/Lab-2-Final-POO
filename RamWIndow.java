@@ -29,9 +29,11 @@ public class RamWIndow extends JFrame {
 	int time;
 	Ram ram = new Ram();
 	Timer timer;
+	Timer timer2;
 	Clock clock = new Clock();
 	Program program = new Program();
 	double GBSpace;
+	MethodsLab2 metL2 = new MethodsLab2();
 	
 
 	/**
@@ -87,14 +89,14 @@ public class RamWIndow extends JFrame {
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
 		
-		JLabel lblNewLabel = new JLabel("Emulador memoria RAM" + ram.getTime());
+		JLabel lblNewLabel = new JLabel("Emulador memoria RAM");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setForeground(Color.MAGENTA);
 		lblNewLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
 		lblNewLabel.setBounds(6, 6, 438, 25);
 		contentPane.add(lblNewLabel);
 		
-		JButton btnNewButton = new JButton("Comenzar " + Math.ceil(ram.getTotal_space() *(1024000/64000000)) );
+		JButton btnNewButton = new JButton("Comenzar");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				timer.start();
@@ -127,7 +129,17 @@ public class RamWIndow extends JFrame {
 		    	lblNewLabel_2.setText("Ciclos: " + clock.getCycles()); 
 		    }
 		});
+		timer2 = new Timer(ram.getTime(), new ActionListener ()	
+		{
+			public void actionPerformed(ActionEvent e) {
+				metL2.addToProcessList(ram, program, ram.getTime());
+				BlocksfromArrayList(ram, start);
+				toWaitlist(ram, start2);
+			}
+		});
+				
 	}
+		
  	public void BlocksfromArrayList(Ram ram, int start) {
 		for (int i =0; i < ram.getProcess().size() ; i++) {
 			JLabel label = new JLabel();

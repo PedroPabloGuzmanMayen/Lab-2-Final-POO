@@ -49,7 +49,7 @@ public class TimeSelection extends JFrame {
 		JRadioButton rdbtnNewRadioButton = new JRadioButton("100 segundos");
 		rdbtnNewRadioButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				time = 100000;
+				time = 10;
 			}
 		});
 		rdbtnNewRadioButton.setBounds(25, 82, 141, 23);
