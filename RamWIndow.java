@@ -27,7 +27,7 @@ public class RamWIndow extends JFrame {
 	int time;
 	Ram ram = new Ram();
 	Timer timer;
-	Clock clock;
+	Clock clock = new Clock();
 	Program program = new Program();
 
 	/**
@@ -37,6 +37,9 @@ public class RamWIndow extends JFrame {
 		this.type = type;
 		this.size = size;
 		this.time = time;
+		ram.setTime(time);
+		ram.setType(type);
+		ram.setTotal_space(size);
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -62,7 +65,7 @@ public class RamWIndow extends JFrame {
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
 		
-		JLabel lblNewLabel = new JLabel("Emulador memoria RAM");
+		JLabel lblNewLabel = new JLabel("Emulador memoria RAM" + ram.getTime());
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setForeground(Color.MAGENTA);
 		lblNewLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
@@ -88,12 +91,16 @@ public class RamWIndow extends JFrame {
 		lblNewLabel_2.setFont(new Font("Lucida Grande", Font.PLAIN, 7));
 		lblNewLabel_2.setBounds(6, 40, 61, 16);
 		contentPane.add(lblNewLabel_2);
-		timer = new Timer (100, new ActionListener ()
+		
+		JLabel lblNewLabel_3 = new JLabel();
+		lblNewLabel_3.setBounds(194, 119, 61, 16);
+		contentPane.add(lblNewLabel_3);
+		timer = new Timer (1000, new ActionListener ()
 		{
 		    public void actionPerformed(ActionEvent e)
 		    {
 		    	clock.work(ram.getTotal_space());
-		    	lblNewLabel_1.setText("00: " + clock.getSeconds()); 
+		    	lblNewLabel_1.setText("Tiempo: " +"00: " + clock.getSeconds()); 
 		    	lblNewLabel_2.setText("Ciclos: " + clock.getCycles()); 
 		    }
 		});
