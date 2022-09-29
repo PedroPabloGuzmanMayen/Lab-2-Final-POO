@@ -9,5 +9,6 @@ public class MethodsLab2 {
 			return true;
 		}
 	}
+	
 
 }
