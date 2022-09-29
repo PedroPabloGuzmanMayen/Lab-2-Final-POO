@@ -21,6 +21,7 @@ public class SizeSelection extends JFrame {
 	private JTextField textField;
 	public String type;
 	public int size;
+	public double GBSpace;
 
 
 	/**
@@ -46,6 +47,7 @@ public class SizeSelection extends JFrame {
 		rdbtnNewRadioButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				size = 4000;
+				GBSpace = 4;
 				
 			}
 		});
@@ -56,6 +58,7 @@ public class SizeSelection extends JFrame {
 		rdbtnNewRadioButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				size =8000; 
+				GBSpace = 8;
 			}
 		});
 		rdbtnNewRadioButton_1.setBounds(150, 76, 141, 23);
@@ -65,6 +68,7 @@ public class SizeSelection extends JFrame {
 		rdbtnNewRadioButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				size = 16000;
+				GBSpace = 16;
 			}
 		});
 		rdbtnNewRadioButton_2.setBounds(6, 169, 141, 23);
@@ -74,6 +78,7 @@ public class SizeSelection extends JFrame {
 		rdbtnNewRadioButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				size = 12000;
+				GBSpace = 12;
 			}
 		});
 		rdbtnNewRadioButton_3.setBounds(303, 76, 141, 23);
@@ -83,6 +88,7 @@ public class SizeSelection extends JFrame {
 		rdbtnNewRadioButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				size = 32000;
+				GBSpace = 32;
 			}
 		});
 		rdbtnNewRadioButton_4.setBounds(150, 169, 141, 23);
@@ -92,6 +98,7 @@ public class SizeSelection extends JFrame {
 		rdbtnNewRadioButton_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				size = 64000;
+				GBSpace = 64;
 			}
 		});
 		rdbtnNewRadioButton_5.setBounds(303, 169, 141, 23);
@@ -100,7 +107,7 @@ public class SizeSelection extends JFrame {
 		JButton btnNewButton_1 = new JButton("Siguiente");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				TimeSelection ts = new TimeSelection(type, size);
+				TimeSelection ts = new TimeSelection(type, size, GBSpace);
 				
 			}
 		});

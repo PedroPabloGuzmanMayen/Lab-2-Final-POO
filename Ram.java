@@ -5,7 +5,8 @@ public class Ram{
     private int initial_space;
     private int total_space;
     private int time;
-    private int blocks;
+    private double GBSpace;
+   
     public ArrayList<Integer> process; 
     public ArrayList<Program> waitlist;
     
@@ -46,5 +47,10 @@ public class Ram{
     public ArrayList<Integer> getProcess(){
     	return process;
     }
-
+    public double getGBSpace() {
+    	return GBSpace;
+    }
+    public void setGBSpace(double GBSpace) {
+    	this.GBSpace = GBSpace;
+    }
 }

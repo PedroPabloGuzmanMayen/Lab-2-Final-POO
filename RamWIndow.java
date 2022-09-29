@@ -23,23 +23,42 @@ public class RamWIndow extends JFrame {
 	private JPanel contentPane;
 
 	String type;
+	int start;
 	int size;
 	int time;
 	Ram ram = new Ram();
 	Timer timer;
 	Clock clock = new Clock();
 	Program program = new Program();
+	double GBSpace;
+	
 
 	/**
 	 * Create the frame.
 	 */
-	public RamWIndow(String type, int size, int time) {
+	public RamWIndow(String type, int size, int time, double GBSpace) {
 		this.type = type;
 		this.size = size;
 		this.time = time;
+		this.GBSpace = GBSpace;
 		ram.setTime(time);
 		ram.setType(type);
 		ram.setTotal_space(size);
+		ram.setGBSpace(GBSpace);
+		double blocks = ram.getGBSpace()*1024/64;
+		System.out.println(blocks);
+		
+		  if (ram.getType().equals("SDR")) {
+			 for (double i = 0; i < blocks; i++) {
+				ram.getProcess().add(0);
+			}
+			BlocksfromArrayList(ram, start);
+		}
+		 
+		
+		 
+		
+			
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -72,7 +91,7 @@ public class RamWIndow extends JFrame {
 		lblNewLabel.setBounds(6, 6, 438, 25);
 		contentPane.add(lblNewLabel);
 		
-		JButton btnNewButton = new JButton("Comenzar");
+		JButton btnNewButton = new JButton("Comenzar " + Math.ceil(ram.getTotal_space() *(1024000/64000000)) );
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				timer.start();
@@ -105,4 +124,21 @@ public class RamWIndow extends JFrame {
 		    }
 		});
 	}
+ 	private void BlocksfromArrayList(Ram ram, int start) {
+		for (int i =0; i < ram.getProcess().size() ; i++) {
+			JLabel label = new JLabel();
+			if(ram.getProcess().get(i) == 0) {
+				label.setText("Libre");
+			}
+			else {
+				label.setText("Ocupado");
+				
+			}
+			label.setBounds(60, start+60, 40, 40);
+			getContentPane().add(label);
+			
+		}
+		
+	}
+
 }

@@ -41,7 +41,7 @@ public class TypeSelection extends JFrame {
 		JRadioButton rdbtnNewRadioButton = new JRadioButton("SDR");
 		rdbtnNewRadioButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				type = "SSR";
+				type = "SDR";
 			}
 		});
 		contentPane.add(rdbtnNewRadioButton, BorderLayout.WEST);

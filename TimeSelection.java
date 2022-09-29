@@ -19,6 +19,7 @@ public class TimeSelection extends JFrame {
 	String type;
 	int size;
 	int time;
+	double GBSpace;
 
 	/**
 	 * Launch the application.
@@ -27,7 +28,7 @@ public class TimeSelection extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public TimeSelection(String type, int size) {
+	public TimeSelection(String type, int size, double GBSpace) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		setVisible(true);
@@ -37,6 +38,7 @@ public class TimeSelection extends JFrame {
 		setContentPane(contentPane);
 		this.type = type;
 		this.size = size;
+		this.GBSpace = GBSpace;
 		
 		JLabel lblNewLabel = new JLabel("Seleccione el tiempo de los ciclos del reloj del programa");
 		lblNewLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
@@ -83,7 +85,7 @@ public class TimeSelection extends JFrame {
 		JButton btnNewButton = new JButton("Siguiente");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				RamWIndow rW = new RamWIndow(type, time, size);
+				RamWIndow rW = new RamWIndow(type, time, size, GBSpace);
 			}
 		});
 		btnNewButton.setBounds(160, 217, 117, 29);
