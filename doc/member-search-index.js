@@ -1,1 +1,1 @@
-memberSearchIndex = [{"p":"<Unnamed>","c":"RamWIndow","l":"BlocksfromArrayList(Ram, int)","u":"BlocksfromArrayList(Ram,int)"},{"p":"<Unnamed>","c":"RamWIndow","l":"RamWIndow(String, int, int, double)","u":"%3Cinit%3E(java.lang.String,int,int,double)"}];updateSearchResults();
+memberSearchIndex = [{"p":"<Unnamed>","c":"MainWindow","l":"main(String[])","u":"main(java.lang.String[])"},{"p":"<Unnamed>","c":"MainWindow","l":"MainWindow()","u":"%3Cinit%3E()"}];updateSearchResults();
