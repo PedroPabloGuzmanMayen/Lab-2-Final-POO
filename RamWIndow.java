@@ -70,6 +70,12 @@ public class RamWIndow extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		JButton btnNewButton = new JButton("Comenzar");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				timer.start();
+				
+			}
+		});
 		btnNewButton.setBounds(163, 43, 117, 29);
 		contentPane.add(btnNewButton);
 		
@@ -82,5 +88,14 @@ public class RamWIndow extends JFrame {
 		lblNewLabel_2.setFont(new Font("Lucida Grande", Font.PLAIN, 7));
 		lblNewLabel_2.setBounds(6, 40, 61, 16);
 		contentPane.add(lblNewLabel_2);
+		timer = new Timer (100, new ActionListener ()
+		{
+		    public void actionPerformed(ActionEvent e)
+		    {
+		    	clock.work(ram.getTotal_space());
+		    	lblNewLabel_1.setText("00: " + clock.getSeconds()); 
+		    	lblNewLabel_2.setText("Ciclos: " + clock.getCycles()); 
+		    }
+		});
 	}
 }
