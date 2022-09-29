@@ -8,10 +8,15 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Color;
 import javax.swing.SwingConstants;
+import javax.swing.Timer;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+
 import java.awt.Button;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class RamWIndow extends JFrame {
 
@@ -21,6 +26,9 @@ public class RamWIndow extends JFrame {
 	int size;
 	int time;
 	Ram ram = new Ram();
+	Timer timer;
+	Clock clock;
+	Program program = new Program();
 
 	/**
 	 * Create the frame.
@@ -37,6 +45,17 @@ public class RamWIndow extends JFrame {
 		setJMenuBar(menuBar);
 		
 		JMenuItem mntmNewMenuItem = new JMenuItem("Agregar programa");
+		mntmNewMenuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Program program = new Program();
+				String space;
+				program.setName(JOptionPane.showInputDialog("Ingrse el nombre del programa")); 
+				space = JOptionPane.showInputDialog("Ingrse el espacio del programa (en MB)");
+				int space2 = Integer.parseInt(space);
+				program.setSpace(space2);
+				ram.getWaitlist().add(program);
+			}
+		});
 		menuBar.add(mntmNewMenuItem);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
